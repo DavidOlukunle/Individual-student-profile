@@ -79,9 +79,5 @@ $password=mysqli_real_escape_string($connection,$password);
 	</div>
 </form>
 </div>
- <div class="container"style="padding-left:200px"><i class="fa fa-user fa-5x"></i></div>
-  <!-- Sidebar -->
-
-
-  <i class="fa fa-pencil"></i>
+ 
 </body>
