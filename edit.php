@@ -1,14 +1,17 @@
 <?php $connection=mysqli_connect('localhost','root','','payment');  ?>
 
 
+<?php SESSION_START();
 
+?>
 <?php 
+$db_id=$_SESSION['id'];
 
-$query="SELECT * FROM users";
+$query="SELECT * FROM users  ";
 $answer=mysqli_query($connection,$query);
 while($row=mysqli_fetch_assoc($answer)){
 $user_image=$row['image'];
-$user_id=$row['id'];
+$db_id=$row['id'];
 
 }
 if(isset($_POST['submit'])){
@@ -21,7 +24,7 @@ $fileupload=move_uploaded_file($user_image_temp, 'user_images/$user_image');
 $query="UPDATE users set ";
 
 $query.="image ='{$user_image}' ";
-	$query.="WHERE id= {$user_id}";
+	$query.="WHERE id= {$db_id}";
 
 
 	$result=mysqli_query($connection, $query);

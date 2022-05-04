@@ -1,5 +1,5 @@
 /* Variables */
-* {
+/* {
   box-sizing: border-box;
 }
 
@@ -41,7 +41,7 @@ form {
 }
 
 /* Buttons and links */
-button {
+/*button {
   background: #5469d4;
   font-family: Arial, sans-serif;
   color: #ffffff;
@@ -65,7 +65,7 @@ button:disabled {
 }
 
 /* spinner/processing state, errors */
-.spinner,
+/*.spinner,
 .spinner:before,
 .spinner:after {
   border-radius: 50%;
@@ -139,4 +139,11 @@ button:disabled {
     width: 80vw;
     min-width: initial;
   }
+}
+
+*/
+#animation{
+  width:100px;
+  height:100px;
+  background-color:blue;
 }

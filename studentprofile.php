@@ -1,5 +1,6 @@
 <?php SESSION_START(); 
 $connection=mysqli_connect('localhost','root','','payment');
+
 ?>
 
 
@@ -68,18 +69,23 @@ $connection=mysqli_connect('localhost','root','','payment');
 
 
   <!-- Sidebar -->
-
-  <!-- Navbar -->
   <?php 
-  $query="SELECT * FROM users";
-  $result=mysqli_query($connection,$query);
- while($row=mysqli_fetch_assoc($result)){
-  // $user_id=$row['id'];
-   $user_image=$row['image'];
+  $db_id=$_SESSION['id'];
   
+  $query="SELECT * FROM users where id='$db_id' ";
+  $result=mysqli_query($connection,$query);
+  while($row=mysqli_fetch_assoc($result)){
+    $user_image=$row['image'];
+    $user_id=$row['id'];
+    
+   
   }
-?>
+  
 
+ ?>
+ 
+  <!-- Navbar -->
+  
   <div class="container-fluid">
 
     <div class="row min-vh-100 flex-column flex-md-row">
@@ -88,8 +94,8 @@ $connection=mysqli_connect('localhost','root','','payment');
           <div class="text-center p-3"> 
           
            <!--  <img src="user_images/<?php //echo $user_image;  ?>" alt="" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow"> -->         
-             <img src="user_images/<?php echo $_SESSION['image']; ?>" alt="picture" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow">
-            <a href="#" class="navbar-brand mx-0 font-weight-bold text-nowrap"><?php echo $_SESSION['firstname']; ?></a>
+             <img src="user_images/<?php echo $user_image?>" alt="picture" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow">
+            <a href="#" class="navbar-brand mx-0 font-weight-bold text-nowrap"><?php echo $_SESSION['firstname']; echo $_SESSION['id']; ?></a>
           </div>
           <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -123,7 +129,7 @@ $connection=mysqli_connect('localhost','root','','payment');
         <div class="container py-3">
 
 
-       <div class="container text-center"><h1>Welcome to your portal dear,<?php echo $_SESSION['firstname'] ?></h1><i class="fa fa-user fa-5x"></i></div>
+       <div class="container text-center"><h1>Welcome to your portal dear,<?php echo $_SESSION['firstname']; ?></h1><i class="fa fa-user fa-5x"></i></div>
   <!--div class="container "style="padding-left:300px"><i class="fa fa-user fa-5x"></i></div-->
   <div class="container text-center pl-5">
     <div class="row justify-content-center">
@@ -134,7 +140,7 @@ $connection=mysqli_connect('localhost','root','','payment');
   </div>
     <div class="col-sm-4 ">
     <div class="card pt-4" style="height:100px">
-      <h3 ><i class="fa fa-university"></i><a href="paymentportal.php?">Pay your fees</a></h3>
+      <h3 ><i class="fa fa-university"></i><a href="paymentportal.php?p_id=<?php echo $user_id;?>">Pay your fees</a></h3>
     </div>
   </div>
     <div class="col-sm-3 ">
