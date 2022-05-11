@@ -51,6 +51,34 @@ $password=mysqli_real_escape_string($connection,$password);
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		
+		.divider-text{
+			position:relative;
+			text-align:center;
+			margin-top: 15px;
+			margin-bottom: 15px;
+
+		}
+		.divider-text span{
+			padding:7px;
+			font-size:30px;
+			position:relative;
+			z-index:2;
+
+		}
+		.divider-text:after{
+			content:"";
+			position:absolute;
+			width:545px;
+			border-bottom:1px solid #ddd;
+			top:55%;
+			left:0;
+			z-index:1;
+
+		}
+		.vl{}
+	</style>
 		<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=-1.0">
 	<title></title><link rel="stylesheet" type="text/css" href="../vendor/bootstrap.min.css">
@@ -61,6 +89,7 @@ $password=mysqli_real_escape_string($connection,$password);
 	<link rel="stylesheet"type="text/css"href="../style.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title></title>
+	
 </head>
 <body style="background-image:url('backgroundimage4.jpg');background-repeat:no-repeat; height:50px; width:; "> 
 
@@ -74,10 +103,10 @@ $password=mysqli_real_escape_string($connection,$password);
 <div class="container pt-5">
 	<h3 style="color:white;" > Welcome Dear student, please fill in your details correctly to login into your portal</h3>
 </div>
-<div class=" container card w3-container w3-center w3-animate-zoom" style="padding:5px;width:500px;border-radius:30px; ">
+<div class=" container card w3-container w3-center w3-animate-zoom" style="padding:5px;width:550px;border-radius:30px; ">
 	<form action="" method="post" >
-		<div class="form-group">
-			<label for="Email">Email:</label>
+		<div class="form-group pt-3">
+			<label style="padding-right:3px" for="Email">Email:</label>
 			<input type="email" class="form-control" name="Email">
 		</div>
 		<div class="form-group">
@@ -87,20 +116,18 @@ $password=mysqli_real_escape_string($connection,$password);
 		<div class="form-group">
 			<button type="submit" class="btn btn-info form-control" name="submit">Login</button>
 	</div>
+	<p class="divider-text">
+		<span class="bg-white">OR</span></p><br>
+
+		<div><a href="register.php" class="btn btn-info"style="text-align:center;text-decoration:underline;">Register Here</a></div>
+
+
 </form>
 
 </div>
 
 
-<div class="container">
-	<div class="row justify-content-center">
-	<h3>Are you a new student?<br> All new students should register below</h3><br>
-	
- </div>
-</div>
-<div class="container">
-	<div class="row justify-content-center">
-<a href="register.php" class="btn btn-info"style="text-align:center;text-decoration:underline;">Register Here</a>
+
 </div>
 </div>
 </body>
